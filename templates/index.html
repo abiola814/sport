@@ -195,6 +195,7 @@
 					</div>
 				  </div>
 				</div>
+				
   
 				<div class="text-center widget-vs-contents mb-4">
 				  <h4>PremierLeague</h4>
@@ -202,6 +203,26 @@
 					<span class="d-block">{{pl_pred['Game Date'][n]}}</span>
 					
 					<strong class="text-primary">{{pl_pred['Venue'][n]}}</strong>
+					  <h4>Odds</h4>
+					     {% set home_win = pl_pred['Home Win'][n] %}
+        {% set away_win = pl_pred['Away Win'][n] %}
+        {% set win_diff = home_win - away_win %}
+        <div>
+        {% if win_diff <= 10 and 
+              (home_win >= 40 and home_win <= 49) %}
+            <p class="text-center widget-vs-contents mb-4" style="color: white">over 1.5 and over 0.5</p>
+        {% elif (home_win >= 40 and home_win <= 49) or
+                 (away_win >= 40 and away_win <= 49) %}
+            <p class="text-center widget-vs-contents mb-4" style="color: white">Under 5.5 or Under 4.5 or Over 0.5</p>
+        {% elif (home_win >= 50 and home_win <= 59) %}
+            <p class="text-center widget-vs-contents mb-4" style="color: white">Win_or_draw</p>
+            <p class="text-center widget-vs-contents mb-4" style="color: white">over 1.5 and over 0.5</p>
+        {% elif (away_win >= 50 and away_win <= 59) %}
+            <p class="text-center widget-vs-contents mb-4" style="color: white">with_or_Draw</p>
+        {% elif (home_win > 60 or away_win > 60) %}
+            <p class="text-center widget-vs-contents mb-4"  style="color: white">Win or Win_or_Draw</p>
+        {% endif %}
+				  </p>
 					<section class='probability_annot'>
 						<div class="win" style="width: calc({{pl_pred['Home Win'][n]}}% - 2px)">
 							<p style="margin-top: 6px; color: white">{{pl_pred['Home Win'][n]}}%
@@ -216,8 +237,9 @@
 							</p>
 							</div>
 					</section>
-				  </p>
-  
+					  
+   
+  </div>
 	
 		
 				</div>
