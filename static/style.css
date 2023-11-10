@@ -1543,14 +1543,16 @@ h5,
   box-sizing: border-box;
   display: inline-block;
   padding: 6px 2px;
+  color: white;
 }
 
 .past_perform_away {
-  width: 49.75%;
+  width: 40.75%;
   text-align: right;
   box-sizing: border-box;
   display: inline-block;
   padding: 6px 2px;
+  color: white;
 }
 
 .past_perform_result {
@@ -1558,6 +1560,7 @@ h5,
   text-align: center;
   box-sizing: border-box;
   display: inline-block;
+  color: white;
 }
 
 .probability_annot {
